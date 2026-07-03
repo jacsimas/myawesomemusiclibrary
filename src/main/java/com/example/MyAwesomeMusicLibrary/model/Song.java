@@ -1,5 +1,6 @@
 package com.example.MyAwesomeMusicLibrary.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,11 +10,11 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int song_id;
-    private int album_id;
-    private int artist_id;
+    private Integer album_id;
+    private Integer artist_id;
     private String title;
-    private int release_year;
-    private int duration;
+    private Integer release_year;
+    private Integer duration;
 
     public Song() {
     }
@@ -22,23 +23,20 @@ public class Song {
         return song_id;
     }
 
-    public void setSong_id(int song_id) {
-        this.song_id = song_id;
-    }
 
-    public int getAlbum_id() {
+    public Integer getAlbum_id() {
         return album_id;
     }
 
-    public void setAlbum_id(int album_id) {
+    public void setAlbum_id(Integer album_id) {
         this.album_id = album_id;
     }
 
-    public int getArtist_id() {
+    public Integer getArtist_id() {
         return artist_id;
     }
 
-    public void setArtist_id(int artist_id) {
+    public void setArtist_id(Integer artist_id) {
         this.artist_id = artist_id;
     }
 
@@ -50,19 +48,19 @@ public class Song {
         this.title = title;
     }
 
-    public int getRelease_year() {
+    public Integer getRelease_year() {
         return release_year;
     }
 
-    public void setRelease_year(int release_year) {
+    public void setRelease_year(Integer release_year) {
         this.release_year = release_year;
     }
 
-    public int getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 }
