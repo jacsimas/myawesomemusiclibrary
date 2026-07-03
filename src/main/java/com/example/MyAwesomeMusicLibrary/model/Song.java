@@ -10,10 +10,10 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int song_id;
-    private Integer album_id;
-    private Integer artist_id;
+    private Integer albumId;
+    private Integer artistId;
     private String title;
-    private Integer release_year;
+    private Integer releaseYear;
     private Integer duration;
 
     public Song() {
@@ -24,20 +24,20 @@ public class Song {
     }
 
 
-    public Integer getAlbum_id() {
-        return album_id;
+    public Integer getAlbumId() {
+        return albumId;
     }
 
-    public void setAlbum_id(Integer album_id) {
-        this.album_id = album_id;
+    public void setAlbumId(Integer albumId) {
+        this.albumId = albumId;
     }
 
-    public Integer getArtist_id() {
-        return artist_id;
+    public Integer getArtistId() {
+        return artistId;
     }
 
-    public void setArtist_id(Integer artist_id) {
-        this.artist_id = artist_id;
+    public void setArtist_id(Integer artistId) {
+        this.artistId = artistId;
     }
 
     public String getTitle() {
@@ -48,12 +48,12 @@ public class Song {
         this.title = title;
     }
 
-    public Integer getRelease_year() {
-        return release_year;
+    public Integer getReleaseYear() {
+        return releaseYear;
     }
 
-    public void setRelease_year(Integer release_year) {
-        this.release_year = release_year;
+    public void setRelease_year(Integer releaseYear) {
+        this.releaseYear = releaseYear;
     }
 
     public Integer getDuration() {

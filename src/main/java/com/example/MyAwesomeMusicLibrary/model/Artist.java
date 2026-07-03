@@ -8,7 +8,7 @@ public class Artist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int artist_id;
+    private Integer artistId;
     private String name;
     private String country;
     private String genre;
@@ -16,12 +16,12 @@ public class Artist {
     public Artist() {
     }
 
-    public int getArtist_id() {
-        return artist_id;
+    public Integer getArtistId() {
+        return artistId;
     }
 
-    public void setArtist_id(int artist_id) {
-        this.artist_id = artist_id;
+    public void setArtist_id(Integer artistId) {
+        this.artistId = artistId;
     }
 
     public String getName() {

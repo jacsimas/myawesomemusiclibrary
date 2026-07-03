@@ -1,11 +1,10 @@
 package com.example.MyAwesomeMusicLibrary.controller;
 
 import com.example.MyAwesomeMusicLibrary.model.Album;
+import com.example.MyAwesomeMusicLibrary.model.Artist;
 import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.service.AlbumService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,7 +21,11 @@ public class AlbumController {
     @GetMapping("/list")
     public List<Album> getAlbums(){
         return albumService.showAll();
+    }
 
+    @PostMapping("/add-album")
+    public String addAlbum(@RequestBody Album album){
+        return albumService.addNewAlbum(album);
     }
 
 }

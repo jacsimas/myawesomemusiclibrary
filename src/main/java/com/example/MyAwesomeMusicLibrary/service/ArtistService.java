@@ -21,4 +21,25 @@ public class ArtistService {
         return artistRepository.findAll();
 
     }
+
+    public String addNewArtist(Artist artist) {
+
+        String name = artist.getName();
+
+        boolean result = checkIfArtistExists(name);
+        if (!result){
+            artistRepository.save(artist);
+            return "New Artist was added successfully";
+        }
+        else return "The artist already exists in the library. Artist wasn't added";
+    }
+
+    private boolean checkIfArtistExists(String name) {
+
+        if(artistRepository.findByName(name) != null)
+        {
+            return true;
+        };
+        return false;
+    }
 }
