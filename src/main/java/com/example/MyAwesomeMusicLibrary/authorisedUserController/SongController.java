@@ -1,4 +1,4 @@
-package com.example.MyAwesomeMusicLibrary.controller;
+package com.example.MyAwesomeMusicLibrary.authorisedUserController;
 
 import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.service.SongService;
@@ -25,6 +25,11 @@ public class SongController {
     @PostMapping("/add-song")
     public String addSong(@RequestBody Song song){
         return songService.addNewSong(song);
+    }
+
+    @PutMapping("/update-song")
+    public String updateSong(@RequestBody Song song){
+        return songService.updateSong(song);
     }
 
 }

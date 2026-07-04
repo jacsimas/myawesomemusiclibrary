@@ -14,6 +14,8 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
 
 
     Song findByTitleAndArtistId(String title, Integer artistId);
+
+    List<Song> findByArtistId(Integer artistId);
 }
 
 /*

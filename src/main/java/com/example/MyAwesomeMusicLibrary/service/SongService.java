@@ -3,6 +3,7 @@ package com.example.MyAwesomeMusicLibrary.service;
 import com.example.MyAwesomeMusicLibrary.MyAwesomeMusicLibraryApplication;
 import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.repository.SongRepository;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.util.List;
 
 
 @Service
+@Transactional
 public class SongService {
 
 
@@ -50,6 +52,21 @@ public class SongService {
             return true;
         };
         return false;
+    }
+
+    public List<Song> songsByArtist(int id){
+        return songRepository.findByArtistId(id);
+    }
+
+    public String updateSong(Song song) {
+
+        Integer songId = song.getSong_id();
+        String songTitle = song.getTitle();
+
+        if (songRepository.findById(songId).isPresent()){
+            songRepository.save(song);
+            return songTitle + " song info was updated! ";
+        } else return songTitle + " could not be found ";
     }
 
 }

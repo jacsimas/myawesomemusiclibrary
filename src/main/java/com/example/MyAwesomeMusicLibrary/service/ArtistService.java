@@ -3,11 +3,13 @@ package com.example.MyAwesomeMusicLibrary.service;
 import com.example.MyAwesomeMusicLibrary.model.Artist;
 import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.repository.ArtistRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class ArtistService {
 
     ArtistRepository artistRepository;

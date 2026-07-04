@@ -1,8 +1,6 @@
-package com.example.MyAwesomeMusicLibrary.controller;
+package com.example.MyAwesomeMusicLibrary.authorisedUserController;
 
 import com.example.MyAwesomeMusicLibrary.model.Album;
-import com.example.MyAwesomeMusicLibrary.model.Artist;
-import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.service.AlbumService;
 import org.springframework.web.bind.annotation.*;
 

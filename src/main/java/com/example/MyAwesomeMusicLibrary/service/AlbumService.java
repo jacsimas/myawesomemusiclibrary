@@ -4,6 +4,7 @@ import com.example.MyAwesomeMusicLibrary.MyAwesomeMusicLibraryApplication;
 import com.example.MyAwesomeMusicLibrary.model.Album;
 import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.repository.AlbumRepository;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Transactional
 public class AlbumService {
 
     final Logger log = LoggerFactory.getLogger(MyAwesomeMusicLibraryApplication.class);
