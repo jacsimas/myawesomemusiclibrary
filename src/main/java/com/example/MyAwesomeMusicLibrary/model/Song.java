@@ -9,7 +9,7 @@ public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int song_id;
+    private int songId;
     private Integer albumId;
     private Integer artistId;
     private String title;
@@ -20,9 +20,12 @@ public class Song {
     }
 
     public int getSong_id() {
-        return song_id;
+        return songId;
     }
 
+    public void setSongId(int songId) {
+        this.songId = songId;
+    }
 
     public Integer getAlbumId() {
         return albumId;

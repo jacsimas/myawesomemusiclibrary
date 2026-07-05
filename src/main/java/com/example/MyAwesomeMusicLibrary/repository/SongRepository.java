@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface SongRepository extends JpaRepository<Song, Integer> {
@@ -16,6 +17,10 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
     Song findByTitleAndArtistId(String title, Integer artistId);
 
     List<Song> findByArtistId(Integer artistId);
+
+    List<Song> findByTitle(String title);
+
+    List<Song> findBySongIdAndTitle(Integer songId, String oldTitle);
 }
 
 /*

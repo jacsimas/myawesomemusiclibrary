@@ -2,10 +2,7 @@ package com.example.MyAwesomeMusicLibrary.UnauthorisedUserController;
 
 import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.service.SongService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,8 +24,12 @@ public class SongLibraryController {
     }
 
     @GetMapping("/filter-songs-by-artist")
-    public List<Song> filterByArtist(@RequestBody Integer id){
+    public List<Song> filterByArtist(@RequestParam Integer id){
         return songService.songsByArtist(id);
     }
 
+    @GetMapping("/filter-songs-by-title")
+    public String filterByTitle(@RequestBody String title) throws Throwable {
+        return songService.songsByTitle(title);
+    }
 }

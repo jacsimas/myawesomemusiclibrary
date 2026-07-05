@@ -1,7 +1,10 @@
 package com.example.MyAwesomeMusicLibrary.authorisedUserController;
 
+import com.example.MyAwesomeMusicLibrary.MyAwesomeMusicLibraryApplication;
 import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.service.SongService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,6 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/songs")
 public class SongController {
+
+    final Logger log = LoggerFactory.getLogger(MyAwesomeMusicLibraryApplication.class);
 
     SongService songService;
 
@@ -24,6 +29,8 @@ public class SongController {
 
     @PostMapping("/add-song")
     public String addSong(@RequestBody Song song){
+        log.info("printing song request -- {}", song.toString());
+
         return songService.addNewSong(song);
     }
 
@@ -31,5 +38,11 @@ public class SongController {
     public String updateSong(@RequestBody Song song){
         return songService.updateSong(song);
     }
+
+    @PutMapping("/update-song-title-by-id")
+    public String updateSongTitle(@RequestBody Song song){
+        return songService.updateSongTitle(song);
+    }
+
 
 }

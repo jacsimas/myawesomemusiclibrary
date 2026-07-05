@@ -25,7 +25,6 @@ public class AlbumService {
 
     public List<Album> showAll() {
         return albumRepository.findAll();
-
     }
 
     public String addNewAlbum(Album album) {
