@@ -44,5 +44,9 @@ public class SongController {
         return songService.updateSongTitle(song);
     }
 
+    @DeleteMapping("/delete-song/{id}")
+    public void deleteSong(@PathVariable Integer id){
+        songService.deleteSongbyId(id);
+    }
 
 }

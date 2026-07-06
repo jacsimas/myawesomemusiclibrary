@@ -1,6 +1,7 @@
 package com.example.MyAwesomeMusicLibrary.UnauthorisedUserController;
 
 import com.example.MyAwesomeMusicLibrary.model.Song;
+import com.example.MyAwesomeMusicLibrary.modelDTO.response.SongResponseDTO;
 import com.example.MyAwesomeMusicLibrary.service.SongService;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +29,20 @@ public class SongLibraryController {
         return songService.songsByArtist(id);
     }
 
+    @GetMapping("/{id}")
+    public Song getSongById(@PathVariable Integer id) {
+        return songService.getSongById(id);
+    }
+
     @GetMapping("/filter-songs-by-title")
     public String filterByTitle(@RequestBody String title) throws Throwable {
         return songService.songsByTitle(title);
     }
+
+    @GetMapping("/by-id/{id}")
+    public SongResponseDTO getSongByIdUsesDto(@PathVariable Integer id) {
+        return songService.getSongByIdUsesDto(id);
+    }
+
+
 }

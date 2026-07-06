@@ -5,6 +5,7 @@ import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.service.FavoriteSongService;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class FavoriteSongController {
     }
 
     @PostMapping("/add-to-favorites")
-    public String addToFavorites(@RequestBody FavoriteSong favoriteSong){
+    public String addToFavorites(@RequestBody FavoriteSong favoriteSong) throws SQLException {
         return favoriteSongService.saveFavSong(favoriteSong);
     }
 

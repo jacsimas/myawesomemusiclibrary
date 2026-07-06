@@ -1,4 +1,4 @@
-package com.example.MyAwesomeMusicLibrary.Security;
+package com.example.MyAwesomeMusicLibrary.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

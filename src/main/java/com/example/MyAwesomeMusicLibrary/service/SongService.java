@@ -1,7 +1,9 @@
 package com.example.MyAwesomeMusicLibrary.service;
 
 import com.example.MyAwesomeMusicLibrary.MyAwesomeMusicLibraryApplication;
+import com.example.MyAwesomeMusicLibrary.mapper.SongMapper;
 import com.example.MyAwesomeMusicLibrary.model.Song;
+import com.example.MyAwesomeMusicLibrary.modelDTO.response.SongResponseDTO;
 import com.example.MyAwesomeMusicLibrary.repository.SongRepository;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -103,6 +105,35 @@ public class SongService {
 
             return songTitle + " " + duration + " " +  releaseYear + " " + artistId;
         } else return "No song with such title could be found";
+    }
+
+    public Song getSongById(Integer songId) {
+
+        Optional<Song> song = songRepository.findById(songId);
+            Song foundSong = song.get();
+        if (foundSong == null){
+            log.warn("Song with this id wasn't found in the database");
+        }
+        return foundSong;
+    }
+
+    public SongResponseDTO getSongByIdUsesDto(Integer songId) {
+
+        Optional<Song> song = songRepository.findById(songId);
+        Song foundSong = song.get();
+        if (foundSong == null) {
+            log.warn("Song by this id wasn't found in the database");
+        }
+        Integer albumId = foundSong.getAlbumId();
+        Integer artistId = foundSong.getArtistId();
+        Integer releaseYear = foundSong.getReleaseYear();
+        log.info("Fetched song with id, albumId, artistId, releaseYear: {} , {} , {} . {} ", songId, albumId, artistId, releaseYear);
+
+        return SongMapper.toDto(foundSong);
+    }
+
+    public void deleteSongbyId(Integer id) {
+        songRepository.deleteById(id);
     }
 
 }
