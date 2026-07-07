@@ -35,7 +35,7 @@ public class SongLibraryController {
     }
 
     @GetMapping("/filter-songs-by-title")
-    public String filterByTitle(@RequestBody String title) throws Throwable {
+    public Song filterByTitle(@RequestBody String title) throws Throwable {
         return songService.songsByTitle(title);
     }
 

@@ -1,9 +1,11 @@
 package com.example.MyAwesomeMusicLibrary.repository;
 
-import com.example.MyAwesomeMusicLibrary.model.FavoriteSong;
 import com.example.MyAwesomeMusicLibrary.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface LoginRepository extends JpaRepository<User, Integer> {
-    User findByUsernameAndPassword(String username, String password);
+
+    Optional<User> findByName(String name);
 }

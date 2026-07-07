@@ -3,6 +3,7 @@ package com.example.MyAwesomeMusicLibrary.service;
 import com.example.MyAwesomeMusicLibrary.MyAwesomeMusicLibraryApplication;
 import com.example.MyAwesomeMusicLibrary.mapper.SongMapper;
 import com.example.MyAwesomeMusicLibrary.model.Song;
+import com.example.MyAwesomeMusicLibrary.model.User;
 import com.example.MyAwesomeMusicLibrary.modelDTO.response.SongResponseDTO;
 import com.example.MyAwesomeMusicLibrary.repository.SongRepository;
 import jakarta.transaction.Transactional;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -90,23 +92,33 @@ public class SongService {
         } else return "Song with such title does not exist. ";
     }
 
-    public String songsByTitle(String title) {
+    public Song songsByTitle(String title) throws RuntimeException{
 
-        List<Song> foundSongOptional = songRepository.findByTitle(title);
+        List<Song> foundSongList = songRepository.findByTitleIsNotNull();
+        log.info("printing song's: title -- {} , ", title);
+        Song checksong = foundSongList.getFirst();
+        String checksongtitle = checksong.getTitle();
+        log.info("printing  checksongtitle title -- {} , ", checksongtitle);
 
-        log.info("printing parameter values -- {} , ", foundSongOptional.getFirst());
-
-        if (foundSongOptional != null) {
-            Song foundSong = foundSongOptional.getFirst();
-            String songTitle = foundSong.getTitle();
-            Integer duration = foundSong.getDuration();
-            Integer releaseYear = foundSong.getReleaseYear();
-            Integer artistId = foundSong.getArtistId();
-
-            return songTitle + " " + duration + " " +  releaseYear + " " + artistId;
-        } else return "No song with such title could be found";
+        Iterator<Song> iterator = foundSongList.iterator();
+        while (iterator.hasNext()) {
+            Song song = iterator.next();
+            if (song.getTitle().equals(title)) {
+                return song;
+            }
+        }
+        return null;
     }
 
+    /*
+            for (Song song : foundSongList){
+             if (song.getTitle().equals(title)){
+                 String checkTitle = song.getTitle();
+                 log.info("printing title from repository -- {} , ", checkTitle);
+                 return song;
+             }
+         }
+     */
     public Song getSongById(Integer songId) {
 
         Optional<Song> song = songRepository.findById(songId);

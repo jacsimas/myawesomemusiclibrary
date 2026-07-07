@@ -18,13 +18,8 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
 
     List<Song> findByArtistId(Integer artistId);
 
-    List<Song> findByTitle(String title);
+    List<Song> findByTitleIsNotNull();
 
     List<Song> findBySongIdAndTitle(Integer songId, String oldTitle);
 }
 
-/*
-    @Query("select s from Song s where s.title like %?1% and s.artist_id like %?1%")
-    Boolean findByTitleAndArtist(@Param("title") String title, @Param("artist_id") Integer artist_id);
-
- */

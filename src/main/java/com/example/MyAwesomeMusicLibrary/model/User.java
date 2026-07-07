@@ -1,6 +1,13 @@
 package com.example.MyAwesomeMusicLibrary.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+
+import javax.sql.DataSource;
 
 @Entity
 @Table(name = "users")
@@ -9,10 +16,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
-    private String username;
+    private String name;
     private String password;
 
     public User() {
+    }
+
+    public User(String name, String password, boolean b, boolean b1) {
     }
 
     public int getUser_id() {
@@ -23,12 +33,12 @@ public class User {
         this.user_id = user_id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {

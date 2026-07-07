@@ -66,4 +66,5 @@ public class Song {
     public void setDuration(Integer duration) {
         this.duration = duration;
     }
+
 }
