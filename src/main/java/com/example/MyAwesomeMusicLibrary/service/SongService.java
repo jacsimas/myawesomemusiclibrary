@@ -3,7 +3,6 @@ package com.example.MyAwesomeMusicLibrary.service;
 import com.example.MyAwesomeMusicLibrary.MyAwesomeMusicLibraryApplication;
 import com.example.MyAwesomeMusicLibrary.mapper.SongMapper;
 import com.example.MyAwesomeMusicLibrary.model.Song;
-import com.example.MyAwesomeMusicLibrary.model.User;
 import com.example.MyAwesomeMusicLibrary.modelDTO.response.SongResponseDTO;
 import com.example.MyAwesomeMusicLibrary.repository.SongRepository;
 import jakarta.transaction.Transactional;
@@ -110,15 +109,7 @@ public class SongService {
         return null;
     }
 
-    /*
-            for (Song song : foundSongList){
-             if (song.getTitle().equals(title)){
-                 String checkTitle = song.getTitle();
-                 log.info("printing title from repository -- {} , ", checkTitle);
-                 return song;
-             }
-         }
-     */
+
     public Song getSongById(Integer songId) {
 
         Optional<Song> song = songRepository.findById(songId);

@@ -20,8 +20,8 @@ public class UserLoginDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String passedusername) throws UsernameNotFoundException {
-        Optional<User> appUserOptional = loginRepository.findByName(passedusername);
+    public UserDetails loadUserByUsername(String passedUsername) throws UsernameNotFoundException {
+        Optional<User> appUserOptional = loginRepository.findByName(passedUsername);
 
 
         if (appUserOptional.isPresent()) {
@@ -30,7 +30,7 @@ public class UserLoginDetailsService implements UserDetailsService {
             return new AppUserPrincipal(appUser);
 
         } else {
-            throw new UsernameNotFoundException(passedusername);
+            throw new UsernameNotFoundException(passedUsername);
         }
     }
 

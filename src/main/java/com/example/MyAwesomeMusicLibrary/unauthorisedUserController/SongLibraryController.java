@@ -1,4 +1,4 @@
-package com.example.MyAwesomeMusicLibrary.UnauthorisedUserController;
+package com.example.MyAwesomeMusicLibrary.unauthorisedUserController;
 
 import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.modelDTO.response.SongResponseDTO;
