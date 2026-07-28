@@ -1,8 +1,8 @@
-package com.example.MyAwesomeMusicLibrary.authorisedUserController;
+package com.example.MyAwesomeMusicLibrary.libraryAccessControllers;
 
 import com.example.MyAwesomeMusicLibrary.model.FavoriteSong;
-import com.example.MyAwesomeMusicLibrary.model.Song;
 import com.example.MyAwesomeMusicLibrary.service.FavoriteSongService;
+import com.example.MyAwesomeMusicLibrary.service.FavoriteSongServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;

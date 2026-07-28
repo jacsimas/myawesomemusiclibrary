@@ -1,8 +1,8 @@
-package com.example.MyAwesomeMusicLibrary.authorisedUserController;
+package com.example.MyAwesomeMusicLibrary.libraryAccessControllers;
 
-import com.example.MyAwesomeMusicLibrary.model.Album;
 import com.example.MyAwesomeMusicLibrary.model.FavoriteAlbum;
 import com.example.MyAwesomeMusicLibrary.service.FavoriteAlbumService;
+import com.example.MyAwesomeMusicLibrary.service.FavoriteAlbumServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,16 +1,16 @@
 package com.example.MyAwesomeMusicLibrary;
 
 import com.example.MyAwesomeMusicLibrary.model.Song;
-import com.example.MyAwesomeMusicLibrary.service.SongService;
+import com.example.MyAwesomeMusicLibrary.service.SongServiceImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SongServiceTests {
+public class SongServiceImplTests {
 
-    SongService service;
+    SongServiceImpl service;
 
-    public SongServiceTests(SongService service) {
+    public SongServiceImplTests(SongServiceImpl service) {
         this.service = service;
     }
 

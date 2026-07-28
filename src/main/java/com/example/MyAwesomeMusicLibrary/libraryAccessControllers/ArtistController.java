@@ -1,13 +1,13 @@
-package com.example.MyAwesomeMusicLibrary.authorisedUserController;
+package com.example.MyAwesomeMusicLibrary.libraryAccessControllers;
 
 import com.example.MyAwesomeMusicLibrary.model.Artist;
 import com.example.MyAwesomeMusicLibrary.service.ArtistService;
+import com.example.MyAwesomeMusicLibrary.service.ArtistServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/artists")
 public class ArtistController {
 
     ArtistService artistService;
@@ -16,14 +16,20 @@ public class ArtistController {
         this.artistService = artistService;
     }
 
-    @GetMapping("/list")
+    @GetMapping("/api/artist-list")
     public List<Artist> getArtists(){
         return artistService.showAll();
     }
 
-    @PostMapping("/add-artist")
+    @PostMapping("/api/add-artist")
     public String addArtist(@RequestBody Artist artist){
         return artistService.addNewArtist(artist);
+    }
+
+
+    @GetMapping("/library/artists")
+    public List<Artist> getLibraryArtists(){
+        return artistService.showAll();
     }
 
 }

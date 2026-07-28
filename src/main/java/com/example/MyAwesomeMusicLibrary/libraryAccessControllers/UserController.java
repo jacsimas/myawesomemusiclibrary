@@ -1,4 +1,4 @@
-package com.example.MyAwesomeMusicLibrary.authorisedUserController;
+package com.example.MyAwesomeMusicLibrary.libraryAccessControllers;
 
 import org.springframework.stereotype.Controller;
 
