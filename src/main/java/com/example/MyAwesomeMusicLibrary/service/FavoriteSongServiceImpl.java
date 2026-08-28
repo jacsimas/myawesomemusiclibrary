@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class FavoriteSongServiceImpl {
+public class FavoriteSongServiceImpl implements FavoriteSongService {
 
     final Logger log = LoggerFactory.getLogger(MyAwesomeMusicLibraryApplication.class);
 
@@ -31,7 +31,7 @@ public class FavoriteSongServiceImpl {
         this.userRepository = userRepository;
     }
 
-    public String saveFavSong(FavoriteSong favoriteSong) throws SQLException {
+    public String saveFavSong(FavoriteSong favoriteSong) {
 
         Integer userId = favoriteSong.getUserId();
         Integer songId = favoriteSong.getSongId();

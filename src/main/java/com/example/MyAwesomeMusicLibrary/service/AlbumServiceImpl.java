@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class AlbumServiceImpl {
+public class AlbumServiceImpl implements AlbumService {
 
     final Logger log = LoggerFactory.getLogger(MyAwesomeMusicLibraryApplication.class);
 
