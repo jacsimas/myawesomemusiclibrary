@@ -1,6 +1,6 @@
 package com.example.MyAwesomeMusicLibrary.security;
 
-import com.example.MyAwesomeMusicLibrary.model.User;
+import com.example.MyAwesomeMusicLibrary.model.AppUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,23 +9,24 @@ import java.util.List;
 
 public class AppUserPrincipal implements UserDetails {
 
-    private User user;
+    private AppUser appUser;
 
-    public AppUserPrincipal(User user) {
-        this.user = user;
+    public AppUserPrincipal(AppUser appUser) {
+        this.appUser = appUser;
     }
 
-    public User getUser() {
-        return user;
+
+    public AppUser getUser() {
+        return appUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     @Override
     public String getUsername() {
-        return user.getName();
+        return appUser.getUsername();
     }
 
     @Override
@@ -35,7 +36,7 @@ public class AppUserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return appUser.getPassword();
     }
 
 }

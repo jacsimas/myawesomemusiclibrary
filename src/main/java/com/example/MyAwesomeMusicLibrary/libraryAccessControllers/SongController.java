@@ -55,6 +55,12 @@ public class SongController {
         return songService.showAll();
     }
 
+    // admin access
+    @GetMapping("/admin/songs")
+    public List<Song> getLibrarySongsForAdmin(){
+        return songService.showAll();
+    }
+
     @GetMapping("/library/filter-songs-by-artist")
     public List<Song> filterByArtist(@RequestParam Integer id){
         return songService.songsByArtist(id);
