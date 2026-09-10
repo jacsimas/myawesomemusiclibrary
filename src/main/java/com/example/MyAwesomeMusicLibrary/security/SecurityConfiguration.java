@@ -25,8 +25,9 @@ public class SecurityConfiguration {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                                .requestMatchers("/library/**").permitAll() // Allow unauthenticated access to /users endpoint
+                                .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .requestMatchers("/api/**").hasRole("USER")// Require auth for all other /users endpoints
+                                .requestMatchers("/library/**").permitAll() // Allow unauthenticated access to /users endpoint
 //                      .anyRequest().permitAll() // Allow all requests without auth
                                 .anyRequest().authenticated() // Require auth for all requests
                 )
@@ -58,6 +59,5 @@ public class SecurityConfiguration {
         return NoOpPasswordEncoder.getInstance();
         // return new BCryptPasswordEncoder();
     }
-
 
 }
