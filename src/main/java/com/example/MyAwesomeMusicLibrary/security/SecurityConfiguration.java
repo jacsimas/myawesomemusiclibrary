@@ -26,15 +26,15 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                                 .requestMatchers("/library/**").permitAll() // Allow unauthenticated access to /users endpoint
-                                .requestMatchers("/api/**").authenticated() // Require auth for all other /users endpoints
+                                .requestMatchers("/api/**").hasRole("USER")// Require auth for all other /users endpoints
 //                      .anyRequest().permitAll() // Allow all requests without auth
                                 .anyRequest().authenticated() // Require auth for all requests
                 )
                 .httpBasic(Customizer.withDefaults());
 
+
         return http.build();
     }
-
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
@@ -56,6 +56,8 @@ public class SecurityConfiguration {
     public PasswordEncoder passwordEncoder() {
     //    return PasswordEncoderFactories.createDelegatingPasswordEncoder();
         return NoOpPasswordEncoder.getInstance();
+        // return new BCryptPasswordEncoder();
     }
+
 
 }

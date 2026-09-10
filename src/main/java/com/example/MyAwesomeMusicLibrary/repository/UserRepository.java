@@ -1,11 +1,9 @@
 package com.example.MyAwesomeMusicLibrary.repository;
 
-import com.example.MyAwesomeMusicLibrary.model.User;
+import com.example.MyAwesomeMusicLibrary.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.UUID;
-
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
 
 }

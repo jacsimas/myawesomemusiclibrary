@@ -1,28 +1,26 @@
 package com.example.MyAwesomeMusicLibrary.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.security.core.GrantedAuthority;
 
-import javax.sql.DataSource;
+import java.util.List;
+
 
 @Entity
 @Table(name = "users")
-public class User {
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
-    private String name;
+    private String username;
     private String password;
+    private String role;
 
-    public User() {
+    public AppUser() {
     }
 
-    public User(String name, String password, boolean b, boolean b1) {
+    public AppUser(String username, String password, List<GrantedAuthority> roles, boolean b, boolean b1) {
     }
 
     public int getUser_id() {
@@ -33,12 +31,12 @@ public class User {
         this.user_id = user_id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -47,5 +45,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRoles(String role) {
+        this.role = role;
     }
 }
